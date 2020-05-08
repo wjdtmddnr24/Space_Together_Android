@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp">
+
+    <ImageView
+        android:id="@+id/item_friend_profile"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:src="#42000000" />
+
+    <TextView
+        android:id="@+id/item_friend_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/item_friend_profile"
+        android:fontFamily="sans-serif"
+        android:lineSpacingExtra="8sp"
+        android:textColor="#de000000"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        tools:text="김태현" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        tools:text="" />
+</RelativeLayout>
