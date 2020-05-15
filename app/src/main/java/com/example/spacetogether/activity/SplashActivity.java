@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.spacetogether.R;
+import com.example.spacetogether.util.PreferenceManager;
 
 
 public class SplashActivity extends AppCompatActivity {
@@ -19,7 +20,13 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 try {
                     Thread.sleep(1500);
-                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                    Intent intent;
+                    String token = PreferenceManager.getString(SplashActivity.this, "token");
+                    if (token != null && !token.isEmpty())
+                        intent = new Intent(SplashActivity.this, MainActivity.class);
+                    else
+                        intent = new Intent(SplashActivity.this, LoginActivity.class);
+                    startActivity(intent);
 //                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
                     finish();
                 } catch (InterruptedException e) {

@@ -1,8 +1,10 @@
 package com.example.spacetogether.activity;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.spacetogether.R;
+import com.example.spacetogether.util.PreferenceManager;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
+        Toast.makeText(this, "환영합니다 " + PreferenceManager.getString(this, "token"), Toast.LENGTH_SHORT).show();
     }
 
 }
