@@ -10,17 +10,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.spacetogether.R;
-import com.example.spacetogether.util.PreferenceManager;
+import com.example.spacetogether.activity.MainActivity;
 
 public class MyPageFragment extends Fragment {
+
+    private TextView username;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_mypage, container, false);
+        username = root.findViewById(R.id.username);
+        username.setText(MainActivity.app_user.getUsername());
 
-        TextView textView = root.findViewById(R.id.username);
-        textView.setText(PreferenceManager.getString(getContext(), "token"));
         return root;
     }
 }

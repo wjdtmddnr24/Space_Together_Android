@@ -33,7 +33,7 @@ public class FriendsAdapter extends RecyclerView.Adapter<FriendsAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final User curUser = userList.get(position);
-        holder.textView.setText(curUser.getUseName());
+        holder.textView.setText(curUser.getUsername());
     }
 
     @Override

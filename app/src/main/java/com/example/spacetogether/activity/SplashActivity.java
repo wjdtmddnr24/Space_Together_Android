@@ -22,13 +22,20 @@ public class SplashActivity extends AppCompatActivity {
                     Thread.sleep(1500);
                     Intent intent;
                     String token = PreferenceManager.getString(SplashActivity.this, "token");
-                    if (token != null && !token.isEmpty())
-                        intent = new Intent(SplashActivity.this, MainActivity.class);
-                    else
+                    if (token != null && !token.isEmpty()) {
+                        MainActivity.fetch_user(new Runnable() {
+                            @Override
+                            public void run() {
+                                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+                        }, token);
+                    } else {
                         intent = new Intent(SplashActivity.this, LoginActivity.class);
-                    startActivity(intent);
-//                    startActivity(new Intent(SplashActivity.this, MainActivity.class));
-                    finish();
+                        startActivity(intent);
+                        finish();
+                    }
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

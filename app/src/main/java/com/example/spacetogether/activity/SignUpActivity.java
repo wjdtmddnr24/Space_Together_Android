@@ -5,7 +5,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -14,7 +13,7 @@ import com.example.spacetogether.R;
 import com.example.spacetogether.data.Result;
 import com.example.spacetogether.util.OdysseyService;
 import com.example.spacetogether.util.PreferenceManager;
-import com.example.spacetogether.util.RetrofitInstance;
+import com.example.spacetogether.util.RetrofitClient;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class SignUpActivity extends AppCompatActivity {
@@ -42,11 +41,11 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 }
 
-                final OdysseyService service = RetrofitInstance.getInstance().create(OdysseyService.class);
-                service.signup(id, pw, username).enqueue(new Callback<Result>() {
+                final OdysseyService service = RetrofitClient.getInstance().create(OdysseyService.class);
+                service.signup(id, pw, username).enqueue(new Callback<Result<String>>() {
                     @Override
-                    public void onResponse(Call<Result> call, Response<Result> response) {
-                        Result result = response.body();
+                    public void onResponse(Call<Result<String>> call, Response<Result<String>> response) {
+                        Result<String> result = response.body();
                         if (result != null && result.data != null && !result.data.isEmpty()) {
                             PreferenceManager.setString(SignUpActivity.this, "token", result.data);
                             finish();
@@ -56,7 +55,7 @@ public class SignUpActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onFailure(Call<Result> call, Throwable t) {
+                    public void onFailure(Call<Result<String>> call, Throwable t) {
                         Toast.makeText(SignUpActivity.this, "회원가입에 실패하였습니다.", Toast.LENGTH_SHORT).show();
                     }
                 });

@@ -1,6 +1,6 @@
 package com.example.spacetogether.data;
 
-public class Result {
+public class Result<T> {
     public String result;
-    public String data;
+    public T data;
 }
