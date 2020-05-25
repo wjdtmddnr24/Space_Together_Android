@@ -13,26 +13,38 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:src="#42000000" />
+        android:src="@drawable/baseline_face_24"
+        android:tint="@color/colorPrimary" />
 
-    <TextView
-        android:id="@+id/item_friend_name"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_toRightOf="@id/item_friend_profile"
-        android:fontFamily="sans-serif"
-        android:lineSpacingExtra="8sp"
-        android:textColor="#de000000"
-        android:textSize="16sp"
-        android:textStyle="normal"
-        tools:text="김태현" />
+        android:orientation="vertical">
 
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:layout_marginRight="16dp"
-        tools:text="" />
+        <TextView
+            android:id="@+id/item_friend_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="8sp"
+            android:textColor="#de000000"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            tools:text="김태현" />
+
+        <TextView
+            android:id="@+id/item_friend_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif"
+            android:lineSpacingExtra="8sp"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            tools:text="jack" />
+    </LinearLayout>
+
+
 </RelativeLayout>

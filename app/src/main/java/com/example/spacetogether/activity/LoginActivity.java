@@ -24,7 +24,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         if (!PreferenceManager.getString(this, "token").isEmpty()) {
-
             MainActivity.fetch_user(new Runnable() {
                 @Override
                 public void run() {
@@ -51,14 +50,21 @@ public class LoginActivity extends AppCompatActivity {
 
                 final OdysseyService service = RetrofitClient.getInstance().create(OdysseyService.class);
                 service.login(id, pw).enqueue(new Callback<Result<String>>() {
+
                     @Override
                     public void onResponse(Call<Result<String>> call, Response<Result<String>> response) {
                         Result<String> result = response.body();
                         if (result != null && result.data != null && !result.data.isEmpty()) {
                             PreferenceManager.setString(LoginActivity.this, "token", result.data);
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(intent);
-                            finish();
+                            MainActivity.fetch_user(new Runnable() {
+                                @Override
+                                public void run() {
+
+                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            }, result.data);
                         } else {
                             Toast.makeText(LoginActivity.this, "로그인에 실패하였습니다: " + result.data, Toast.LENGTH_SHORT).show();
                         }

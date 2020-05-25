@@ -24,12 +24,20 @@ public interface OdysseyService {
     @POST("auth/signup")
     Call<Result<String>> signup(@Field("id") String id, @Field("pw") String password, @Field("username") String username);
 
-    @POST("user/{id}")
+    @GET("user/{id}")
     Call<Result<User>> getUser(@Path("id") String userId, @Query("token") String token);
 
-    @FormUrlEncoded
-    @POST("user/all")
-    Call<Result<List<User>>> getUsers(@Query("token") String token, @Field("userIds") List<String> userIds);
+    @GET("friend")
+    Call<Result<List<User>>> getFriendsUsers(@Query("token") String token);
+
+    @GET("friend/request")
+    Call<Result<List<User>>> getRequestFriendsUsers(@Query("token") String token);
+
+    @POST("friend/request/{id}")
+    Call<Result<String>> requestFriend(@Path("id") String userId, @Query("token") String token);
+
+    @POST("friend/accept/{id}")
+    Call<Result<String>> acceptFriend(@Path("id") String userId, @Query("token") String token);
 
 
 }

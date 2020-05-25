@@ -27,7 +27,6 @@
                     android:id="@+id/username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-
                     android:fontFamily="sans-serif"
                     android:lineSpacingExtra="-6sp"
                     android:textColor="#de000000"
@@ -41,11 +40,23 @@
                     android:layout_marginLeft="8dp"
                     android:fontFamily="sans-serif"
                     android:lineSpacingExtra="-6sp"
+                    android:text="님"
                     android:textColor="#de000000"
                     android:textSize="24sp"
-                    android:textStyle="bold"
-                    tools:text="님" />
+                    android:textStyle="bold" />
             </LinearLayout>
+
+            <TextView
+                android:id="@+id/user_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="23dp"
+                android:fontFamily="sans-serif"
+                android:lineSpacingExtra="-6sp"
+                android:textColor="#de000000"
+                android:textSize="18sp"
+                android:textStyle=""
+                tools:text="ID: jack" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
