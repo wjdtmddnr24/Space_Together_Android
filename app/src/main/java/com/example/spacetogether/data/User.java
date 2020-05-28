@@ -80,7 +80,7 @@ public class User implements Serializable {
 }
 
 
-class Schedule {
+class Schedule implements Serializable {
     private Date startDate;
     private Date endDate;
 

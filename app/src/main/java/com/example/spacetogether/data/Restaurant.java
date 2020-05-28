@@ -4,14 +4,8 @@ import java.io.Serializable;
 
 public class Restaurant implements Serializable {
     private int id;
-    private String restaurantName;
-    private String restaurantImageURL;
-
-    public Restaurant(int id, String restaurantName, String restaurantImageURL) {
-        this.id = id;
-        this.restaurantName = restaurantName;
-        this.restaurantImageURL = restaurantImageURL;
-    }
+    private String name;
+    private String image_url;
 
     public int getId() {
         return id;
@@ -21,19 +15,19 @@ public class Restaurant implements Serializable {
         this.id = id;
     }
 
-    public String getRestaurantName() {
-        return restaurantName;
+    public String getName() {
+        return name;
     }
 
-    public void setRestaurantName(String restaurantName) {
-        this.restaurantName = restaurantName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getRestaurantImageURL() {
-        return restaurantImageURL;
+    public String getImage_url() {
+        return image_url;
     }
 
-    public void setRestaurantImageURL(String restaurantImageURL) {
-        this.restaurantImageURL = restaurantImageURL;
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
     }
 }

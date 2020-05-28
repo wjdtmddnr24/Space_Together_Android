@@ -1,5 +1,6 @@
 package com.example.spacetogether.util;
 
+import com.example.spacetogether.data.Restaurant;
 import com.example.spacetogether.data.Result;
 import com.example.spacetogether.data.User;
 import com.google.gson.JsonObject;
@@ -38,6 +39,9 @@ public interface OdysseyService {
 
     @POST("friend/accept/{id}")
     Call<Result<String>> acceptFriend(@Path("id") String userId, @Query("token") String token);
+
+    @POST("restaurant/recommend")
+    Call<Result<List<Restaurant>>> recommendRestaurant(@Query("token") String token, @Body List<User> users);
 
 
 }
