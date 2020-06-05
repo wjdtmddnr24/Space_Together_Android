@@ -43,5 +43,8 @@ public interface OdysseyService {
     @POST("restaurant/recommend")
     Call<Result<List<Restaurant>>> recommendRestaurant(@Query("token") String token, @Body List<User> users);
 
+    @POST("restaurant/select/{id}")
+    Call<Result<String>> selectRestaurant(@Path("id") String restaurantId, @Query("token") String token, @Body List<User> users);
+
 
 }

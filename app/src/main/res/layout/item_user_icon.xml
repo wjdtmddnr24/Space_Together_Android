@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="3.5dp"
     android:layout_marginRight="3.5dp"
+    android:paddingRight="10dp"
     android:gravity="center_horizontal"
     android:orientation="vertical">
 
@@ -14,6 +15,7 @@
         android:src="@drawable/user_icon" />
 
     <TextView
+        android:id="@+id/item_user_name"
         android:layout_width="47dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"

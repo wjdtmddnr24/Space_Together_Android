@@ -49,6 +49,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), RestaurantActivity.class);
+                intent.putExtra("users", availableFriendsAdapter.getSelectedUser());
                 startActivity(intent);
             }
         });

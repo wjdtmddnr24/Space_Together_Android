@@ -11,9 +11,11 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.example.spacetogether.R;
+import com.example.spacetogether.activity.MainActivity;
 import com.example.spacetogether.data.User;
 import com.example.spacetogether.fragment.FriendsFragment;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,6 +47,12 @@ public class AvailableFriendsAdapter extends RecyclerView.Adapter<AvailableFrien
 
         holder.textView.setText(curUser.user.getUsername());
         holder.availableFriendCheckBox.setChecked(curUser.isChecked);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.availableFriendCheckBox.toggle();
+            }
+        });
         holder.availableFriendCheckBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -81,5 +89,16 @@ public class AvailableFriendsAdapter extends RecyclerView.Adapter<AvailableFrien
         public AvailableUser(User user) {
             this.user = user;
         }
+    }
+
+    public ArrayList<User> getSelectedUser() {
+        ArrayList<User> ret = new ArrayList<>();
+        ret.add(MainActivity.app_user);
+        for (AvailableUser availableUser : availableUserList) {
+            if (availableUser.isChecked) {
+                ret.add(availableUser.user);
+            }
+        }
+        return ret;
     }
 }

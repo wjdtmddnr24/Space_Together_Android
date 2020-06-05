@@ -12,6 +12,7 @@
         android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/restaurant_friend_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -21,11 +22,6 @@
                 android:layout_width="17dp"
                 android:layout_height="1dp" />
 
-            <include layout="@layout/item_user_icon" />
-
-            <include layout="@layout/item_user_icon" />
-
-            <include layout="@layout/item_user_icon" />
 
         </LinearLayout>
 

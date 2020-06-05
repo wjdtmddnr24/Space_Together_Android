@@ -3,6 +3,7 @@ package com.example.spacetogether.data;
 import java.io.Serializable;
 
 public class Restaurant implements Serializable {
+    private String _id;
     private int id;
     private String name;
     private String image_url;
@@ -29,5 +30,9 @@ public class Restaurant implements Serializable {
 
     public void setImage_url(String image_url) {
         this.image_url = image_url;
+    }
+
+    public String get_id() {
+        return _id;
     }
 }
