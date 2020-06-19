@@ -51,8 +51,16 @@ public class AvailableFriendsAdapter extends RecyclerView.Adapter<AvailableFrien
     public boolean isAvailable(AvailableUser user) {
         for (Lecture lecture : user.user.getTimetable()) {
             for (Schedule schedule : lecture.getSchedule()) {
-                if (current.after(schedule.getStartDate()) && current.before(schedule.getEndDate())) {
-                    user.interval = new Date(schedule.getEndDate().getTime() - current.getTime());
+                if (current.getDay() == schedule.getStartDate().getDay() && current.after(schedule.getStartDate()) && current.before(schedule.getEndDate())) {
+                    user.interval = new Date();
+                    int h = schedule.getEndDate().getHours() - current.getHours();
+                    int m = schedule.getEndDate().getMinutes() - current.getMinutes();
+                    if (m < 0) {
+                        m += 60;
+                        h--;
+                    }
+                    user.interval.setHours(h);
+                    user.interval.setMinutes(m);
                     return false;
                 }
             }
@@ -75,7 +83,7 @@ public class AvailableFriendsAdapter extends RecyclerView.Adapter<AvailableFrien
         if (curUser.interval == null) {
             holder.availableTimeTextView.setText("현재 식사 가능");
         } else {
-            holder.availableTimeTextView.setText(String.format("%d시간 %분 후 식사 가능", curUser.interval.getHours(), curUser.interval.getMinutes()));
+            holder.availableTimeTextView.setText(String.format("%d시간 %d분 후 식사 가능", curUser.interval.getHours(), curUser.interval.getMinutes()));
         }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
