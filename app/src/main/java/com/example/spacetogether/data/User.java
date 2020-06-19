@@ -8,11 +8,20 @@ public class User implements Serializable {
     private String _id;
     private String userId;
     private String username;
-    private List<Schedule> timetable;
+    private List<Lecture> timetable;
     private List<String> friends;
     private List<String> friendsRequest;
     private List<User> friendsUser;
     private List<User> friendsRequestUser;
+    private List<History> history;
+
+    public List<History> getHistory() {
+        return history;
+    }
+
+    public void setHistory(List<History> history) {
+        this.history = history;
+    }
 
     public String getUserId() {
         return userId;
@@ -38,11 +47,11 @@ public class User implements Serializable {
         this.username = username;
     }
 
-    public List<Schedule> getTimetable() {
+    public List<Lecture> getTimetable() {
         return timetable;
     }
 
-    public void setTimetable(List<Schedule> timetable) {
+    public void setTimetable(List<Lecture> timetable) {
         this.timetable = timetable;
     }
 
@@ -79,24 +88,3 @@ public class User implements Serializable {
     }
 }
 
-
-class Schedule implements Serializable {
-    private Date startDate;
-    private Date endDate;
-
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-}

@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".fragment.MyPageFragment">
 
     <ScrollView
@@ -60,29 +59,73 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="530dp"
-                android:layout_marginLeft="17dp"
-                android:layout_marginTop="11dp"
-                android:layout_marginRight="17dp">
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="11dp">
 
 
-                <View
+                <!--  <view
+                      class="com.example.spacetogether.fragment.MyPageFragment$ScheduleView"
+                      android:layout_width="match_parent"
+                      android:layout_height="600dp"
+                      android:background="#EAF4FD" />-->
+
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="#8f8f8f" />
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_marginLeft="14.6dp"
+                            android:layout_marginTop="12.1dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:lineSpacingExtra="6sp"
+                            android:text="내 시간표"
+                            android:textColor="#fe8f1a"
+                            android:textSize="14sp"
+                            android:textStyle="normal" />
+
+                        <ImageView
+                            android:id="@+id/add_schedule"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_alignParentRight="true"
+                            android:layout_margin="13dp"
+                            android:padding="4dp"
+                            android:src="@drawable/add_schedule" />
+                    </RelativeLayout>
+
+                    <com.github.tlaabs.timetableview.TimetableView
+                        android:id="@+id/timetable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:column_count="6"
+                        app:header_title="@array/my_header_title"
+                        app:row_count="12"
+                        app:side_cell_width="28dp"
+                        app:start_time="9" />
+                </LinearLayout>
+
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="530dp"
-                android:layout_marginLeft="17dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="21dp"
-                android:layout_marginRight="17dp"
                 android:layout_marginBottom="26.7dp">
 
                 <LinearLayout
+                    android:id="@+id/mypage_history_list"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical">
 
                     <TextView
@@ -96,6 +139,7 @@
                         android:textColor="#fe8f1a"
                         android:textSize="14sp"
                         android:textStyle="normal" />
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 

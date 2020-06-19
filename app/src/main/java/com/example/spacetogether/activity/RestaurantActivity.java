@@ -90,6 +90,12 @@ public class RestaurantActivity extends AppCompatActivity {
                     public void onResponse(Call<Result<String>> call, Response<Result<String>> response) {
                         if (response.body().result.equals("success")) {
                             Toast.makeText(RestaurantActivity.this, "맛있는 식사하세요!", Toast.LENGTH_SHORT).show();
+                            MainActivity.fetch_user(new Runnable() {
+                                @Override
+                                public void run() {
+
+                                }
+                            }, PreferenceManager.getString(RestaurantActivity.this, "token"));
                             finish();
                         }
                     }

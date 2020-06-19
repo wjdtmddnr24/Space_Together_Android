@@ -28,6 +28,9 @@ public interface OdysseyService {
     @GET("user/{id}")
     Call<Result<User>> getUser(@Path("id") String userId, @Query("token") String token);
 
+    @POST("user/{id}")
+    Call<Result<String>> setUser(@Path("id") String userId, @Query("token") String token, @Body User user);
+
     @GET("friend")
     Call<Result<List<User>>> getFriendsUsers(@Query("token") String token);
 

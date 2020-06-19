@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<Result<String>> call, Response<Result<String>> response) {
                         Result<String> result = response.body();
-                        if (result != null && result.data != null && !result.data.isEmpty()) {
+                        if (result != null && result.data != null && !result.data.isEmpty() && result.result.equals("success")) {
                             PreferenceManager.setString(LoginActivity.this, "token", result.data);
                             MainActivity.fetch_user(new Runnable() {
                                 @Override

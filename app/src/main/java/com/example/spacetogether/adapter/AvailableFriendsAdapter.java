@@ -12,11 +12,14 @@ import android.widget.TextView;
 
 import com.example.spacetogether.R;
 import com.example.spacetogether.activity.MainActivity;
+import com.example.spacetogether.data.Lecture;
+import com.example.spacetogether.data.Schedule;
 import com.example.spacetogether.data.User;
 import com.example.spacetogether.fragment.FriendsFragment;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -24,15 +27,37 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class AvailableFriendsAdapter extends RecyclerView.Adapter<AvailableFriendsAdapter.ViewHolder> {
     List<AvailableUser> availableUserList;
+    private final Date current;
 
 
     public AvailableFriendsAdapter(List<User> userList) {
+        this.current = new Date();
         this.availableUserList = new ArrayList<>();
+        List<AvailableUser> tmp = new ArrayList<>();
         if (userList != null) {
             for (User u : userList) {
-                availableUserList.add(new AvailableUser(u));
+                AvailableUser availableUser = new AvailableUser(u);
+                if (isAvailable(availableUser)) {
+                    availableUserList.add(availableUser);
+                } else {
+                    tmp.add(availableUser);
+                }
             }
         }
+        for (AvailableUser availableUser : tmp)
+            availableUserList.add(availableUser);
+    }
+
+    public boolean isAvailable(AvailableUser user) {
+        for (Lecture lecture : user.user.getTimetable()) {
+            for (Schedule schedule : lecture.getSchedule()) {
+                if (current.after(schedule.getStartDate()) && current.before(schedule.getEndDate())) {
+                    user.interval = new Date(schedule.getEndDate().getTime() - current.getTime());
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     @NonNull
@@ -47,6 +72,11 @@ public class AvailableFriendsAdapter extends RecyclerView.Adapter<AvailableFrien
 
         holder.textView.setText(curUser.user.getUsername());
         holder.availableFriendCheckBox.setChecked(curUser.isChecked);
+        if (curUser.interval == null) {
+            holder.availableTimeTextView.setText("현재 식사 가능");
+        } else {
+            holder.availableTimeTextView.setText(String.format("%d시간 %분 후 식사 가능", curUser.interval.getHours(), curUser.interval.getMinutes()));
+        }
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -85,6 +115,7 @@ public class AvailableFriendsAdapter extends RecyclerView.Adapter<AvailableFrien
     public static class AvailableUser {
         User user;
         boolean isChecked = false;
+        Date interval = null;
 
         public AvailableUser(User user) {
             this.user = user;

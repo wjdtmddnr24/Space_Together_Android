@@ -6,8 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.spacetogether.R;
 import com.example.spacetogether.activity.RestaurantActivity;
 import com.example.spacetogether.data.Restaurant;
@@ -47,6 +49,9 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
                 restaurantActivity.selectRestaurant(restaurant);
             }
         });
+        Glide.with(holder.itemView).load(RetrofitClient.SERVER_URL + "/images/" + restaurant.getImage_url()).into(holder.imageView);
+
+
     }
 
     public void addRestaurant(Restaurant restaurant) {
@@ -61,11 +66,13 @@ public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.Vi
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public View itemView;
         public TextView name;
+        public ImageView imageView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             this.itemView = itemView;
             this.name = itemView.findViewById(R.id.item_restaurant_name);
+            this.imageView = itemView.findViewById(R.id.item_restaurant_profile_image);
         }
     }
 }

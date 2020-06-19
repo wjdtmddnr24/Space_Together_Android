@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="19.5dp"
+            android:layout_marginTop="18dp"
+            android:fontFamily="sans-serif-medium"
+            android:lineSpacingExtra="4sp"
+            android:text="강의 추가"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="19.5dp"
+            android:layout_marginTop="4.7dp"
+            android:layout_marginRight="19.5dp"
+            android:fontFamily="sans-serif"
+            android:text="강의 이름, 요일, 시작 시간, 종료 시간을 입력해주세요."
+            android:textColor="#8a000000"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="19dp"
+            android:hint="강의 이름"
+            android:shadowDy="3"
+            android:shadowRadius="6"
+            android:textColorHint="@color/colorPrimary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dialog_lecture_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:shadowDy="3"
+                android:shadowRadius="6"
+                android:theme="@style/RequestFriendEditTextStyle"
+                tools:text="asdf" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="19dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/schedule_day1"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/round_circle_border"
+                android:gravity="center"
+                android:text="월"
+                android:textAlignment="center" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="1dp" />
+
+            <TextView
+                android:id="@+id/schedule_day2"
+                android:layout_width="30dp"
+
+                android:layout_height="30dp"
+                android:background="@drawable/round_circle_border"
+                android:gravity="center"
+                android:text="화"
+                android:textAlignment="center" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="1dp" />
+
+            <TextView
+                android:id="@+id/schedule_day3"
+                android:layout_width="30dp"
+
+                android:layout_height="30dp"
+                android:background="@drawable/round_circle_border"
+                android:gravity="center"
+                android:text="수"
+                android:textAlignment="center" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="1dp" />
+
+            <TextView
+                android:id="@+id/schedule_day4"
+
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/round_circle_border"
+                android:gravity="center"
+                android:text="목"
+                android:textAlignment="center" />
+
+            <View
+                android:layout_width="20dp"
+                android:layout_height="1dp" />
+
+            <TextView
+                android:id="@+id/schedule_day5"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/round_circle_border"
+                android:gravity="center"
+                android:text="금"
+                android:textAlignment="center" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="19dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="시작 시간:"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/start_hour"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:inputType="numberDecimal"
+                android:text="12" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/start_minute"
+                android:layout_width="40dp"
+
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:inputType="numberDecimal"
+                android:text="00" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="19dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="종료 시간:"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/end_hour"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+
+                android:inputType="numberDecimal"
+                android:text="13" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/end_minute"
+                android:layout_width="40dp"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:inputType="numberDecimal"
+                android:text="00" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginTop="37dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="13dp">
+
+            <TextView
+                android:id="@+id/dialog_ok"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:foreground="?attr/selectableItemBackground"
+                android:lineSpacingExtra="6sp"
+                android:padding="9dp"
+                android:text="추가하기"
+                android:textColor="#009688"
+                android:textSize="14sp"
+                android:textStyle="normal" />
+
+            <TextView
+                android:id="@+id/dialog_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:foreground="?attr/selectableItemBackground"
+                android:lineSpacingExtra="6sp"
+                android:padding="9dp"
+                android:text="취소"
+                android:textColor="#009688"
+                android:textSize="14sp"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
